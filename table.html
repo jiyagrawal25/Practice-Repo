@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let r = prompt("Enter the number of rows:");
+        let c = prompt("Enter the number of columns:");
+        
+        document.write("<table border='1' cellpadding='5' cellspacing='0'>"); // Start table
+        for (let i = 1; i <= r; i++) { 
+            document.write("<tr>"); // Start row
+            for (let j = 1; j <= c; j++) {
+                document.write("<td>" + i + " x " + j + " = " + (i * j) + "</td>"); // Cell with multiplication result
+            }
+            document.write("</tr>"); // End row
+        }
+        document.write("</table>"); // End table
+    </script>
+    
+</body>
+</html>
