@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converter</title>
+</head>
+<body>
+    <form>
+        <input type="text" name="input" oninput="TempConvert()">
+        <select name="inOp" onchange="TempConvert()">
+            <option value="C">Celsius</option>
+            <option value="F">Fahrenheit</option>
+            <option value="K">Kelvin</option>
+        </select>
+
+        <input type="text" name="output" readonly>
+        <select name="outOp" onchange="TempConvert()">
+            <option value="C">Celsius</option>
+            <option value="F">Fahrenheit</option>
+            <option value="K">Kelvin</option>
+        </select>
+    </form>
+
+    <script>
+        function TempConvert() {
+            let input = parseFloat(document.forms[0].elements['input'].value) || 0;
+            let inOp = document.forms[0].elements['inOp'].value;
+            let outOp = document.forms[0].elements['outOp'].value;
+            
+            let tempInC = inOp === "C" ? input :
+                          inOp === "F" ? (input - 32) * 5 / 9 :
+                          inOp === "K" ? input - 273.15 : input;
+
+            let output = outOp === "C" ? tempInC :
+                         outOp === "F" ? tempInC * 9 / 5 + 32 :
+                         outOp === "K" ? tempInC + 273.15 : tempInC;
+
+            document.forms[0].elements['output'].value = output.toFixed(2);
+        }
+    </script>
+</body>
+</html>
