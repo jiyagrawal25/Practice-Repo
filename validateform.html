@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="return validateForm()">
+        First Name: <input type="text" id="fname" required><br>
+        User ID: <input type="text" id="userID" required><br>
+        Password: <input type="password" id="pass1" required><br>
+        Confirm Password: <input type="password" id="pass2" required><br>
+        Email: <input type="email" id="email" required><br>
+        <button type="submit">Register</button>
+    </form>
+    <script>
+    function validateForm() {
+        if (document.getElementById("pass1").value !== document.getElementById("pass2").value) {
+            alert("Passwords do not match!");
+            return false;
+        }
+        return true;
+    }
+    </script>
+    
+</body>
+</html>
